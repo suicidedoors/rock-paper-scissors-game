@@ -57,6 +57,40 @@ char getautopilot(){
     return 😭;
 }
 
+void printRock() {
+    printf("        ___\n");
+    printf("     _/`.-'`.\n");
+    printf("   _/` .  _.''\n");
+    printf("  /__.-'`\n");
+}
+
+void printPaper() {
+    printf("___________~~~\n");
+    printf("|         ~~~|\n");
+    printf("|  ~~~~  ~~~~|\n");
+    printf("|_________~~~\n");
+}
+
+void printScissors() {
+    printf("   _       ,/'\n");
+    printf("  (_).  ,/'\n");
+    printf("   _  ::\n");
+    printf("  (_)'  `\\.\n");
+    printf("           `\\.\n");
+}
+
+void printArt(char 😔){
+    printf("Computer chose:\n");
+    if (😔 == 'r'){
+        printRock();
+    } else if (😔 == 'p'){
+        printPaper();
+    } else {
+        printScissors();
+    }
+    
+}   
+
 int main() {
     srand((unsigned int)time(NULL));
     char autopilot = getautopilot();
@@ -73,7 +107,7 @@ int main() {
         }
         char computer = computerMove();
         printf("You chose: \'%c\'\n", player);
-        printf("Computer chose: \'%c\'\n", computer);
+        printArt(computer);
         getWinner(player, computer);
         printf("Wins: %d, loses: %d, draws: %d\n\n", wins, loses, draws); 
         sleep(1); 
