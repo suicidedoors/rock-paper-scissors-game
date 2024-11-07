@@ -4,74 +4,72 @@
 #include <ctype.h>
 #include <unistd.h>
 
-static int wins;
-static int loses;
-static int draws;
+int 🏆, 💀, 🤝;
 
-char playerMove() {
-    char c;
+char 🤖() {
+    char 🐵;
     do {
         printf("Pick Rock (r), Paper (p), or Scissors (s): ");
-        scanf(" %c", &c);
-        c = tolower(c);
-    } while (c != 'r' && c != 'p' && c!= 's');
-    return c;
+        scanf(" %c", &🐵);
+        🐵 = tolower(🐵);
+    } while (🐵 != 'r' && 🐵 != 'p' && 🐵 != 's');
+    return 🐵;
 }
 
-char computerMove() {
-    char c;
-    int i = rand() % 3;
-    switch(i) {
+char 🖥️() {
+    char 🥭;
+    int 🍀 = rand() % 3;
+    switch(🍀) {
         case 0: 
-            c = 'r';
+            🥭 = 'r';
             break;
         case 1: 
-            c = 'p';
+            🥭 = 'p';
             break;
         case 2:
-            c = 's';
+            🥭 = 's';
             break;
-        default: printf("Those who know: 💀");
+        default: printf("Those who know: 💀💀💀");
     } 
-    return c;
+    return 🥭;
 }
 
-void getWinner(char a, char b) {
-    if (a == b) {
+void 🎮(char 😈, char 🌂) {
+    if (😈 == 🌂) {
         printf("It's a draw\n");
-        draws++;
-    } else if ((a == 'r' && b == 's') || (a == 's' && b == 'p') || (a == 'p' && b == 'r')) {
+        🤝++;
+    } else if ((😈 == 'r' && 🌂 == 's') || (😈 == 's' && 🌂 == 'p') || (😈 == 'p' && 🌂 == 'r')) {
         printf("You win\n");
-        wins++;
+        🏆++;
     } else {
         printf("You lose\n");
-        loses++;
+        💀++;
     }
 }
 
-char getautopilot(){
-    char 😭;
+char SIGMA() {
+    char 👽;
     printf("Do you want to play the game? (Y/n): ");
-    scanf(" %c", &😭);
-    😭 = tolower(😭);
-    return 😭;
+    scanf(" %c", &👽);
+    👽 = tolower(👽);
+    return 👽;
 }
 
-void printRock() {
+void 🪨() {
     printf("        ___\n");
     printf("     _/`.-'`.\n");
     printf("   _/` .  _.''\n");
     printf("  /__.-'`\n");
 }
 
-void printPaper() {
+void 📜() {
     printf("___________~~~\n");
     printf("|         ~~~|\n");
     printf("|  ~~~~  ~~~~|\n");
     printf("|_________~~~\n");
 }
 
-void printScissors() {
+void 🌂() {
     printf("   _       ,/'\n");
     printf("  (_).  ,/'\n");
     printf("   _  ::\n");
@@ -79,37 +77,36 @@ void printScissors() {
     printf("           `\\.\n");
 }
 
-void printArt(char 😔){
+void 🎨(char 👾){
     printf("Computer chose:\n");
-    if (😔 == 'r'){
-        printRock();
-    } else if (😔 == 'p'){
-        printPaper();
+    if (👾 == 'r'){
+        🪨();
+    } else if (👾 == 'p'){
+        📜();
     } else {
-        printScissors();
+        🌂();
     }
-    
 }   
 
 int main() {
     srand((unsigned int)time(NULL));
-    char autopilot = getautopilot();
-    char player;
-    char computer;
-    if (autopilot == 'n'){
+    char 🚀 = SIGMA();
+    char 🐾;
+    char 🧑‍💻;
+    if (🚀 == 'n'){
         printf("Okay, the game will play itself for you\n");
     }
     while (1){
-        if (autopilot == 'y') {
-            player = playerMove();
+        if (🚀 == 'y') {
+            🐾 = 🤖();
         } else {
-            player = computerMove();
+            🐾 = 🖥️();
         }
-        char computer = computerMove();
-        printf("You chose: \'%c\'\n", player);
-        printArt(computer);
-        getWinner(player, computer);
-        printf("Wins: %d, loses: %d, draws: %d\n\n", wins, loses, draws); 
+        char 🧑‍💻 = 🖥️();
+        printf("You chose: \'%c\'\n", 🐾);
+        🎨(🧑‍💻);
+        🎮(🐾, 🧑‍💻);
+        printf("Wins: %d, loses: %d, draws: %d\n\n", 🏆, 💀, 🤝); 
         sleep(1); 
     }     
 
